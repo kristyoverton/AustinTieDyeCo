@@ -1,0 +1,13 @@
+<%content_for :head do %>
+<title>Weird. Original. Austin.</title>
+<%end%>
+
+<%content_for :body do %>
+<div class="row">
+<h1>Austin Tie Dye Co</h1>
+</div>
+<div class="row">
+	<h6>What we've been up to lately:</h6>
+	<%= image_tag(@instagram.low_resolution.url, :class=>"img-responsive") %><br>
+</div>
+<%end%>

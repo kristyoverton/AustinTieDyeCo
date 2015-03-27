@@ -1,0 +1,29 @@
+<% content_for :head do %>
+<title>Austin Tie Dye Co: Blanket Detail</title>
+<%end%>
+
+  <% content_for :body do %>
+  <h2 style="font-family:monospace">Blanket Detail:</h2>
+
+  <%= image_tag(@blanket.img.url, :class=> "img-responsive" %>
+  <%= simple_form_for @blanket do |f| %>
+  <%= f.input :id %>
+  <%= f.input :creators %>
+  <%= f.input :story %>
+  <%= f.input :desc, label:"Product Description" %>
+  <%= f.input :price %>
+  <%= f.file_field :img %>
+  <p>Registered to:</p>
+    <%= f.simple_fields_for :user do |user_form| %>
+      <%= user_form.input :first_name %>
+      <%= user_form.input :last_name %>
+      <%= user_form.input :address1 %>
+      <%= user_form.input :address2 %>
+      <%= user_form.input :city %>
+      <%= user_form.input :state %>
+      <%= user_form.input :zip %>
+    <%end%>
+  <%= f.button :submit, value: "Update"%>
+  <%end%>
+
+<%end%>

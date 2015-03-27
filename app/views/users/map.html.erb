@@ -1,0 +1,42 @@
+<%content_for :head do %>
+<title>Weird. Original. Austin.</title>
+<%end%>
+
+<%content_for :javascript do %>
+ <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"> </script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	function initialize () {
+    	var lat = <%=@lat%>;
+    	var lon = <%=@lon%>;
+  		var mapProp = {
+		    center:new google.maps.LatLng(lat,lon),
+		    zoom:15
+		  };
+
+  var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+  <% @locations.each do |location| %>
+  var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(<%=location.lat%>,<%=location.long%>),
+      map: map,
+      title: 'Yep, totally been here.'
+  });
+  <%end%>
+
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+
+});</script>
+<%end%>
+
+<%content_for :body do %>
+We've been everywhere, man!
+
+<div class="row">
+
+<div id="googleMap" class="img-responsive" style="width:500px;height:380px;"></div>
+</div>
+<div class="row">
+</div>
+<%end%>

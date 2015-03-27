@@ -1,0 +1,15 @@
+<% content_for :head do %>
+<title>Austin Tie Dye Co: User Login</title>
+<%end%>
+
+
+<% content_for :body do %>
+<h2>User Login.</h2>
+<h4><a href="/register">(New User?)</a></h4>
+	<%= simple_form_for @user, :url => '/signin/user' do |f| %>
+  	<%= f.input :email %>
+  	<%= f.input :password %>
+  	<%= f.button :submit, value: "Log In"%>
+	<%end%>
+
+<%end%>

@@ -1,0 +1,16 @@
+<% content_for :head do %>
+<title>ATDC: Edit Admin Info</title>
+<%end%>
+
+  <% content_for :body do %>
+
+  <h2 style="font-family:monospace">Edit Admin:</h2>
+  <%= simple_form_for @admin, :url => update_admin_path(@admin, :id => @admin[:id]) do |f| %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+
+  <%= f.button :submit, value: "Update"%>
+  <%end%>
+
+<%end%>

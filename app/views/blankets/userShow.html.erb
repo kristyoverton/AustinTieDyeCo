@@ -1,0 +1,29 @@
+<% content_for :head do %>
+<title>Austin Tie Dye Co: Blanket Detail</title>
+<%end%>
+
+  <% content_for :body do %>
+  <h2 style="font-family:monospace">Blanket Detail:</h2>
+  
+  ID#: <%= @blanket.id %><br>
+  <%= image_tag (@blanket.img.url, size: "200x200", :class => "img-responsive") %><br>
+  Creators: <%= @blanket.creators %><br>
+  Story: <%= @blanket.story %><br>
+  Name: <%= @blanket.name %> 
+  <span id="editnameform" class="hidden">
+    <%= simple_form_for @blanket, url: user_edit_blanket_path do |f| %>
+      <%= f.input :name %>
+      <%= f.button :submit %>
+    <%end%>
+  </span>
+  <span id="editname">(<a href="#editname">Edit</a>)</span><br><br>
+    Registered to:<br> (<a href="/user/blankets/destroy/<%=@blanket[:id]%>" data-method="post">unregister this blanket?</a>)<br>
+    <%= @blanket.user.first_name %> 
+    <%= @blanket.user.last_name %>
+    <%= @blanket.user.address1 %><br>
+    <%= @blanket.user.address2 %><br>
+    <%= @blanket.user.city %><br>
+    <%= @blanket.user.state %><br>
+    <%= @blanket.user.zip %><br>
+
+<%end%>

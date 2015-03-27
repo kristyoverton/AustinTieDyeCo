@@ -1,0 +1,14 @@
+<% content_for :head do %>
+<title>Austin Tie Dye Co: Customer List</title>
+<%end%>
+
+
+
+  <% content_for :body do %>
+  <h2 style="font-family:monospace">Customer List! (Click for details).</h2>
+
+  <% @users.each do |user| %>
+    <strong><a href="/admins/edituser/<%=user.id%>"><%= user.first_name %> <%= user.last_name %></strong></a>- <%= user.email %> <br>
+  <%end%>
+
+<%end%>

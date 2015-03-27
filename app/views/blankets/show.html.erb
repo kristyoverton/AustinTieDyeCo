@@ -1,0 +1,33 @@
+<% content_for :head do %>
+<title>Austin Tie Dye Co: Blanket Detail</title>
+<%end%>
+
+
+  <% content_for :body do %>
+  <h2 style="font-family:monospace">Blanket Detail:</h2>
+  
+  ID#: <%= @blanket.id %><br>
+  <%= image_tag() @blanket.img.url, size: "200x200", :class => "img-responsive") %><br>
+  Creators: <%= @blanket.creators %><br>
+  Story: <%= @blanket.story %><br>
+  Product Description: <%= @blanket.desc %><br>
+  Price: <%= number_to_currency @blanket.price %><br>
+  Name: <%= @blanket.name %><br>
+  <a href="/blankets/<%=@blanket[:id]%>/edit">Edit This Blanket</a><br><br>
+  <% if @blanket.user != nil %>
+    Registered to:<br> (<a href="/blankets/<%=@blanket[:id]%>/edituser">register this blanket to someone else</a>)<br>
+    <%= @blanket.user.first_name %> 
+    <%= @blanket.user.last_name %><br>
+    <%= @blanket.user.address1 %><br>
+    <%= @blanket.user.address2 %><br>
+    <%= @blanket.user.city %><br>
+    <%= @blanket.user.state %><br>
+    <%= @blanket.user.zip %><br>
+    <a href="/admins/edituser/<%=@blanket[:user_id]%>/edit">Edit Customer's Info</a>
+    <% else %>
+    <a href="/blankets/<%=@blanket[:id]%>/edituser">Register this blanket to someone</a>
+  <%end%>
+
+
+
+<%end%>

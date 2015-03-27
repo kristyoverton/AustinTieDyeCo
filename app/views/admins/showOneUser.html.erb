@@ -1,0 +1,14 @@
+<% content_for :head do %>
+<title>ATDC: Customer Detail</title>
+<%end%>
+
+
+  <% content_for :body do %>
+  <h2 style="font-family:monospace">Customer Detail:</h2>
+  <h4><a href="/admins/edituser/<%=@user.id%>/edit">(Edit?)</a></h4>
+  <%= @user.first_name %> <%= @user.last_name %> - <%= @user.email %><br>
+  <%= @user.address1 %><br>
+  <%= @user.address2 %><br>
+  <%= @user.city %>, <%= @user.state %><%= @user.zip %><br>
+
+<%end%>

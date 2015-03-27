@@ -1,0 +1,22 @@
+<% content_for :head do %>
+<title>Austin Tie Dye Co: All the Blanket</title>
+<%end%>
+
+
+  <% content_for :body do %>
+  <div class="row">
+  <h3 style="font-family:monospace">All yer blankets! Click on an id to view details, or a button to edit/delete.</h3>
+
+  <% @blankets.each do |b| %>
+  <div class="row">
+	  <div class="col-xs-6">
+	  	<a href="/blankets/<%= b.id %>"><%= image_tag b.img.url, size:"200x200",:class => "img-responsive" %>
+	  </div>
+	  <div class="col-xs-4">
+	  	<a href="/blankets/<%= b.id %>"> Blanket #<%= b.id %></a> | <a href="/blankets/<%= b.id %>/edit">Edit Blanket </a> | <a href="/blankets/<%= b.id%>" data-method="delete" data-confirm="Are you SURE you want to delete this whole blanket? (Will not delete any customer info.)">Delete Blanket</a>
+	</div>
+	</div>
+  <%end%>
+</div>
+
+<%end%>

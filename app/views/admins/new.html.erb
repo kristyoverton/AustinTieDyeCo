@@ -1,0 +1,16 @@
+<% content_for :head do %>
+<title>ATDC: Create New Admin</title>
+<%end%>
+
+  <% content_for :body do %>
+  <div class="row">
+    <h2>Add an Admin.</h2>
+  <%= simple_form_for @admin do |f| %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
+  <%= f.button :submit, value: "Create"%>
+</div>
+  <%end%>
+
+<%end%>

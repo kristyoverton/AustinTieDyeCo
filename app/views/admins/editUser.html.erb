@@ -1,0 +1,19 @@
+<% content_for :head do %>
+<title>ATDC: Edit Customer Detail</title>
+<%end%>
+
+
+  <% content_for :body do %>
+  <h2 style="font-family:monospace">Customer Detail:</h2>
+  <%= simple_form_for @user, url: admins_update_user_path do |f|%>
+  <%= f.input :first_name %> 
+  <%= f.input :last_name %>
+  <%= f.input :email %>
+  <%= f.input :address1 %>
+  <%= f.input :address2 %>
+  <%= f.input :city %>
+  <%= f.input :state %>
+  <%= f.input :zip %>
+  <%= f.button :submit, "Update" %>
+  <%end%>
+<%end%>

@@ -1,0 +1,17 @@
+<%content_for :body do %>
+
+<%= simple_form_for @user do |f| %>
+<h1>New Customer Registration</h1>
+  <%= f.input :first_name %>
+   <%= f.input :last_name %>
+    <%= f.input :email %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+    <%= f.input :address1 %>
+    <%= f.input :address2 %>
+	<%= f.input :city %>
+	<%= f.input :state %>
+	<%= f.input :zip %>
+	<%= f.button :submit %>
+    <%end%>
+    <%end%>

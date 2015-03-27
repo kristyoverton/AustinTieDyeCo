@@ -1,0 +1,24 @@
+<%content_for :head do %>
+<title>Lost Blanket Report</title>
+<%end%>
+
+<%content_for :body do %>
+<div class="row">
+<h1>I Found Someone's Blanket, What Do I Do Now?</h1>
+
+	<p>First, pat yourself on the back for being a kind and generous soul. The world needs more people like you. </p>
+	<p>Next, click <a href="#">here</a> to generate a mailing label. Put the blanket in an envelope, add the label, give it to the mailman, and you're done! We'll make sure it gets back to its rightful owner.</p>
+	<p>If you want to give us a heads-up, you can submit the form below, and we'll let the owners know their lost blanket has been found.</p>
+	<%= simple_form_for @contact, :url => '/contacts' do |f|%>
+	<%= f.input :id, :label =>"Blanket ID#: " %><br>
+	<%= f.input :name, :label =>"Your Name: " %>
+	<%= f.input :info, :label =>"Contact Info (if you want to be contacted): " %>
+	<%= f.input :comment, :label =>"Any Comments or Questions? "%>
+	<div class= "hidden">
+      <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+    </div>
+	<%= f.button :submit, "Send Report" %>
+<%end%>
+</div>
+</div>
+<%end%>

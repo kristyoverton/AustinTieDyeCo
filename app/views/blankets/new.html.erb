@@ -1,0 +1,20 @@
+<% content_for :head do %>
+<title>Austin Tie Dye Co: Add a Blanket</title>
+<%end%>
+
+
+
+  <% content_for :body do %>
+  <h2 style="font-family:monospace">Enter new blanket info here. DO IT. DO IT NOW.</h2>
+
+  <%=simple_form_for @blanket, :html => {multipart: true} do |f| %>
+  <%= f.input :id %>
+  <%= f.input :creators %>
+  <%= f.input :story %>
+  <%= f.input :desc, label:"Product Description" %>
+  <%= f.input :price %>
+  <%= f.file_field :img %>
+  <%= f.button :submit, value: "Create"%>
+  <%end%>
+
+<%end%>
