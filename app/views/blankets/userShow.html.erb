@@ -6,7 +6,7 @@
   <h2 style="font-family:monospace">Blanket Detail:</h2>
   
   ID#: <%= @blanket.id %><br>
-  <%= image_tag (@blanket.img.url, size: "200x200", :class => "img-responsive") %><br>
+  <%= image_tag  @blanket.img.url, :class => "img-responsive" %><br>
   Creators: <%= @blanket.creators %><br>
   Story: <%= @blanket.story %><br>
   Name: <%= @blanket.name %> 

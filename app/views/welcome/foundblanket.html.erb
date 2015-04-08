@@ -27,18 +27,30 @@
       </div>
       <div class="modal-body">
         <%= form_tag("/returnlabel", target: "_blank") do %>
+        <div class="form-group">
 	  		<%= label_tag(:name) %>
-	  		<%= text_field_tag(:name) %>
+	  		<%= text_field_tag(:name, nil, :required =>true) %>
+	  	</div>
+	  	<div class="form-group">
 	  		<%= label_tag(:street1) %>
-	  		<%= text_field_tag(:street1) %>
+	  		<%= text_field_tag(:street1, nil, :required =>true) %>
+	  	</div>
+	  	<div class="form-group">
 	  		<%= label_tag(:street2) %>
 	  		<%= text_field_tag(:street2) %>
+	  	</div>
+	  	<div class="form-group">
 	  		<%= label_tag(:city) %>
-	  		<%= text_field_tag(:city) %>
+	  		<%= text_field_tag(:city, nil, :required =>true) %>
+	  	</div>
+	  	<div class="form-group">
 	  		<%= label_tag(:state) %>
-	  		<%= text_field_tag(:state) %>
+	  		<%= text_field_tag(:state, nil, :required =>true) %>
+	  	</div>
+	  	<div class="form-group">
 	  		<%= label_tag(:zip) %>
-	  		<%= text_field_tag(:zip) %>
+	  		<%= text_field_tag(:zip, nil, :required =>true) %>
+	  	</div>
 	 		<%= submit_tag("Generate Label!") %>
 		<% end %>
       </div>

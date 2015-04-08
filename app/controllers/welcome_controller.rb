@@ -1,8 +1,6 @@
 class WelcomeController < ApplicationController
 	layout "users"
-  require 'EasyPost'
-
-  EasyPost.api_key = 'aSjNYTfjMa08e7MFji6tCw'
+  
 
   def index
     insta = Instagram.user_recent_media("420821382", {count:1})

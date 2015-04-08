@@ -19,6 +19,5 @@ gem 'easypost'
 gem 'twitter'
 gem 'hashie'
 gem 'instagram'
-gem 'puma'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 

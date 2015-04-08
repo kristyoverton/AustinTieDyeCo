@@ -19,6 +19,7 @@ class BlanketsController < ApplicationController
 
 	def userShow
 		@blanket = Blanket.includes(:user).find(params[:id])
+		@location = Location.new
 		render :layout => 'users'
 	end
 

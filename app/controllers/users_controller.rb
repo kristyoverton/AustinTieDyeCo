@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
   #   Form to make new user
   def new 
+    @location = Location.new
     @user = User.new
   end
 
@@ -61,19 +62,7 @@ class UsersController < ApplicationController
     end
   end
 
-  #   Restful route to actually delete the user
-  def destroy
-    u = User.find(params[:id])
-    
-    if u.id == @current_user.id
-        flash[:alert] = "Please don't destroy yourself - it isn't healthy!"
-    elsif u.destroy == false
-        flash[:errors] = u.errors.full_messages
-    end
-    redirect_to users_path
-  end
-
-  def checkIn
+   def checkIn
     pos = Location.new(location_params)
       if pos.save
         flash[:lat] = pos.lat
@@ -93,15 +82,6 @@ class UsersController < ApplicationController
       @lon = -97.772859
     end
 
-  # client = Twitter::REST::Client.new do |config|
-   #    config.consumer_key    = TWITTER_CONSUMER_KEY
-  #    config.consumer_secret = TWITTER_CONSUMER_SECRET
-   #     config.access_token    = TWITTER_ACCESS_TOKEN
-    #   config.access_token_secret = TWITTER_ACCESS_TOKEN_SECRET
-   # end
-
-   # @tweet = client.search(geocode:'#{@lat},#{@lon},5mi', result_type: "recent").take(1)
-  # @tweet = random_fact(@lat,@lon)
     @locations = Location.nearby(@lat,@lon)
     @location = Location.new
   end
